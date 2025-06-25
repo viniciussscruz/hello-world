@@ -48,7 +48,7 @@ include/
   mic.h    – I²S RX API (pure C)
   audio.h  – I²S TX API (pure C)
 src/
-  main.cpp – Arduino sketch (C++)
+  main.c– Arduino sketch (C)
   mic.c    – microphone driver (C)
   audio.c  – amplifier driver (C)
 ```
@@ -61,20 +61,7 @@ src/
 
 ---
 
-## 4. platformio.ini
-
-```ini
-[env:esp32-s3]
-platform      = espressif32
-board         = esp32-s3-devkitc-1
-framework     = arduino
-monitor_speed = 115200
-build_flags   = -std=gnu99      ; compile .c files in C99 mode
-```
-
----
-
-## 5. Runtime Parameters (default)
+## 4 Runtime Parameters (default)
 
 * `SAMPLE_RATE` = 8000 Hz  
 * `REC_SECONDS` = 4 s (→ 64 kB buffer in internal SRAM)
@@ -83,7 +70,7 @@ build_flags   = -std=gnu99      ; compile .c files in C99 mode
 
 ---
 
-## 6. Build & Flash
+## 5. Build & Flash
 
 ```bash
 pio run -t upload      # build & flash
@@ -101,7 +88,7 @@ Playing…
 
 ---
 
-## 7. Behaviour Flow
+## 6. Behaviour Flow
 
 1. **IDLE** – LED off, waiting for button.  
 2. **RECORD** – LED on, capture until 4 s or second press.  
@@ -111,7 +98,7 @@ Playing…
 
 ---
 
-## 8. Extension Ideas
+## 7. Extension Ideas
 
 * Switch to PSRAM module for higher quality/longer clips.  
 * Implement software volume scaling or AGC.  
